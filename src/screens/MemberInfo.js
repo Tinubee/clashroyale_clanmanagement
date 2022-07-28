@@ -16,6 +16,7 @@ function MemberInfo() {
           {isLoading ? "Loading..." : data.data.name + " Information"}
         </Title>
       </Header>
+      <div>추후 업데이트 예정</div>
     </Container>
   );
 }

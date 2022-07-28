@@ -4,8 +4,9 @@ import Home from "./screens/Home";
 import MemberInfo from "./screens/MemberInfo";
 
 function Router() {
+  console.log(process.env.PUBLIC_URL);
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Switch>
         <Route path="/member/:memberTag">
           <MemberInfo />

@@ -50,7 +50,6 @@ function Home() {
   ];
 
   const clanTag = ["YJQRVLGY", "YJY8VJJQ", "YVQ0L9RC", "LPLLYQQU", "PQGQPCC9"];
-
   return (
     <Container>
       <Header>
