@@ -1,11 +1,10 @@
 import axios from "axios";
-import { Token } from "./token";
 
 const BASE_UTL = "https://proxy.royaleapi.dev/v1";
 
 const headers = {
   "Content-Type": "application/json",
-  Authorization: `Bearer ${Token}`,
+  Authorization: `Bearer ${process.env.REACT_APP_TOKEN}`,
 };
 
 export async function getPlayerData(playerTag) {

@@ -9,7 +9,6 @@ function MemberInfo() {
     getPlayerData(memberTag)
   );
 
-  console.log(data);
   return (
     <Container>
       <Header>

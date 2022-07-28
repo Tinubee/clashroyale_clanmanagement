@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import React from "react";
 
 export const Container = styled.div`
   max-width: 700px;

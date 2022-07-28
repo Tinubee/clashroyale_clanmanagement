@@ -13,7 +13,6 @@ const GridBox = styled.div`
 const Text = styled.div``;
 
 function ClanWar(clanData) {
-  console.log(clanData);
   return (
     <GridBox>
       <Text>{`◈${clanData.clanWar.data.clan.name}◈`}</Text>
