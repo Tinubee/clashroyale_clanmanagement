@@ -45,7 +45,7 @@ const Tabs = styled.div`
 const Tab = styled.div`
   text-align: center;
   text-transform: uppercase;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 400;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 18px 0px;
@@ -64,7 +64,6 @@ const HomeBtn = styled.div`
   color: ${(props) => props.theme.textColor};
   border: 1px solid white;
   border-radius: 15px;
-  width: 22%;
   justify-content: center;
   a {
     padding: 12px;

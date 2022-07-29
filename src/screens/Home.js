@@ -3,8 +3,7 @@ import styled from "styled-components";
 import React from "react";
 
 export const Container = styled.div`
-  max-width: calc(var(--vw, 100vw) * 100);
-  max-height: calc(var(--vh, 100vh) * 100);
+  max-width: 360px;
   margin: 0 auto;
 `;
 
