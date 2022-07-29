@@ -12,6 +12,8 @@ import ClanMember from "./ClanMember";
 import ClanNotice from "./ClanNotice";
 import ClanWar from "./ClanWar";
 import { Container, Header, Title } from "./Home";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
 
 const Overview = styled.div`
   display: flex;
@@ -62,9 +64,9 @@ const HomeBtn = styled.div`
   color: ${(props) => props.theme.textColor};
   border: 1px solid white;
   border-radius: 15px;
-  width: 15%;
+  width: 13%;
   a {
-    padding: 10px;
+    padding: 12px;
     transition: all 0.2s ease-in;
     align-items: center;
   }
@@ -96,7 +98,9 @@ function Clan() {
   return (
     <Container>
       <HomeBtn>
-        <Link to="/"> &larr; Go Home</Link>
+        <Link to="/">
+          <FontAwesomeIcon icon={faHome}></FontAwesomeIcon> Home
+        </Link>
       </HomeBtn>
       <Header>
         <Title>{loading ? "Loading..." : clanData?.data?.name}</Title>
