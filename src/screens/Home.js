@@ -3,7 +3,7 @@ import styled from "styled-components";
 import React from "react";
 
 export const Container = styled.div`
-  max-width: 700px;
+  max-width: 480px;
   margin: 0 auto;
 `;
 
@@ -15,7 +15,7 @@ export const Header = styled.header`
 `;
 
 export const Title = styled.h1`
-  font-size: 36px;
+  font-size: 30px;
   color: ${(props) => props.theme.accentColor};
 `;
 

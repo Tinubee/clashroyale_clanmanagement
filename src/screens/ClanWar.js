@@ -27,8 +27,8 @@ const Text = styled.div``;
 const CopyBtn = styled.button`
   border: 1px solid ${(props) => props.theme.textColor};
   border-radius: 10px;
-  padding: 8px 20px;
   font-size: 14px;
+  height: 40px;
   cursor: pointer;
 `;
 

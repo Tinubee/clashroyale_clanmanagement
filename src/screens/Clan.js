@@ -64,7 +64,8 @@ const HomeBtn = styled.div`
   color: ${(props) => props.theme.textColor};
   border: 1px solid white;
   border-radius: 15px;
-  width: 13%;
+  width: 22%;
+  justify-content: center;
   a {
     padding: 12px;
     transition: all 0.2s ease-in;
