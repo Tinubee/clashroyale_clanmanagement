@@ -30,6 +30,9 @@ const CopyBtn = styled.button`
   font-size: 14px;
   height: 40px;
   cursor: pointer;
+  &:hover {
+    background-color: ${(props) => props.theme.accentColor};
+  }
 `;
 
 const CopyText = styled.div`

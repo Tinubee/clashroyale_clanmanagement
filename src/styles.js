@@ -55,4 +55,8 @@ a {
   text-decoration:none;
   color: inherit;
 }
+:root {
+       --vh: 100%;
+	   --vw: 100%;
+}
 `;
