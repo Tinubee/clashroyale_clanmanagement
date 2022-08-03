@@ -58,6 +58,12 @@ function ClanWar(clanData) {
         <CopyBtn onClick={handleCopy}>
           복사하기 <FontAwesomeIcon icon={faCopy}></FontAwesomeIcon>
         </CopyBtn>
+        <div>
+          <div>periodType : {clanData.clanWar.data.periodType}</div>
+          <div>periodIndex : {clanData.clanWar.data.periodIndex}</div>
+          <div>sectionIndex : {clanData.clanWar.data.sectionIndex}</div>
+        </div>
+
         <CopyText>{isCopied ? "복사완료 !" : ""}</CopyText>
       </CopyContainer>
       <GridBox ref={formRef}>
