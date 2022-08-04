@@ -51,6 +51,7 @@ function ClanWar(clanData) {
     navigator.clipboard.writeText(text);
     setIsCopied(true);
   };
+
   return (
     <>
       <CopyContainer>
@@ -65,25 +66,37 @@ function ClanWar(clanData) {
         <CopyText>{isCopied ? "복사완료 !" : ""}</CopyText>
       </CopyContainer>
       <GridBox ref={formRef}>
-        <Text>{`◈${clanData.clanWar.data.clan.name}◈`}</Text>
-        <Text>클랜전 남은 전쟁덱</Text>
-        <br />
-        <MemberList>
-          {clanData.clanMembers.map((member, index) => {
-            return (
-              <Member key={index}>
-                <Info>
-                  {clanData.clanWar.data.clan.participants.map((par) => {
-                    if (par.tag === member.tag && par.decksUsedToday !== 4) {
-                      return `${member.name} - ${4 - par.decksUsedToday}회`;
-                    }
-                    return null;
-                  })}
-                </Info>
-              </Member>
-            );
-          })}
-        </MemberList>
+        {clanData.clanWar.data.periodType === "warDay" ? (
+          <>
+            <Text>{`◈${clanData.clanWar.data.clan.name}◈`}</Text>
+            <Text>
+              전투일 {clanData.clanWar.data.periodIndex - 2}일차 클랜전 남은
+              전쟁덱
+            </Text>
+            <br />
+            <MemberList>
+              {clanData.clanMembers.map((member, index) => {
+                return (
+                  <Member key={index}>
+                    <Info>
+                      {clanData.clanWar.data.clan.participants.map((par) => {
+                        if (
+                          par.tag === member.tag &&
+                          par.decksUsedToday !== 4
+                        ) {
+                          return `${member.name} - ${4 - par.decksUsedToday}회`;
+                        }
+                        return null;
+                      })}
+                    </Info>
+                  </Member>
+                );
+              })}
+            </MemberList>
+          </>
+        ) : (
+          "훈련일 입니다. 클랜전 시작시 알려드릴게요.😀"
+        )}
       </GridBox>
     </>
   );
