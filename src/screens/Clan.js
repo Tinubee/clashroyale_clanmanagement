@@ -14,6 +14,8 @@ import ClanWar from "./ClanWar";
 import { Container, Header, Title } from "./Home";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
+import ClanDonation from "./ClanDonation";
+import Footer from "../components/Footer";
 
 const Overview = styled.div`
   display: flex;
@@ -83,6 +85,7 @@ function Clan() {
   const clanMemberMatch = useRouteMatch("/:clanTag/member");
   const clanWarMatch = useRouteMatch("/:clanTag/clanwar");
   const clanNoticeMatch = useRouteMatch("/:clanTag/notice");
+  const ClanDonationMatch = useRouteMatch("/:clanTag/donation");
 
   const { isLoading: clanDataLoading, data: clanData } = useQuery(
     ["clans", clanTag],
@@ -116,6 +119,9 @@ function Clan() {
             <Tab isActive={clanMemberMatch !== null}>
               <Link to={`/${clanTag}/member`}>클랜원</Link>
             </Tab>
+            <Tab isActive={ClanDonationMatch !== null}>
+              <Link to={`/${clanTag}/donation`}>지원률</Link>
+            </Tab>
             <Tab isActive={clanWarMatch !== null}>
               <Link to={`/${clanTag}/clanwar`}>클랜전</Link>
             </Tab>
@@ -127,6 +133,12 @@ function Clan() {
           <Switch>
             <Route path={`/:clanTag/member`}>
               <ClanMember clanMembers={clanData?.data?.memberList} />
+            </Route>
+            <Route path={`/:clanTag/donation`}>
+              <ClanDonation
+                clanWar={clanWar}
+                clanMembers={clanData?.data?.memberList}
+              />
             </Route>
             <Route path={`/:clanTag/clanwar`}>
               <ClanWar
@@ -140,6 +152,7 @@ function Clan() {
           </Switch>
         </>
       )}
+      <Footer />
     </Container>
   );
 }

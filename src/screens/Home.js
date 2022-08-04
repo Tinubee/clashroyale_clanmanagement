@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import React from "react";
+import Footer from "../components/Footer";
 
 export const Container = styled.div`
   max-width: 360px;
   margin: 0 auto;
+  height: 90vh;
 `;
 
 export const Header = styled.header`
@@ -61,7 +63,7 @@ function Home() {
             <ClanName key={index}>
               <Link
                 to={{
-                  pathname: `/${clanTag[index]}`,
+                  pathname: `/${clanTag[index]}/member`,
                   state: clanName[index],
                 }}
               >
@@ -71,6 +73,7 @@ function Home() {
           );
         })}
       </ClanList>
+      <Footer />
     </Container>
   );
 }

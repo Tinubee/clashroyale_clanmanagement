@@ -6,14 +6,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy } from "@fortawesome/free-regular-svg-icons";
 import { useState } from "react";
 
-const CopyContainer = styled.div`
+export const CopyContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
   margin-bottom: 10px;
 `;
 
-const GridBox = styled.form`
+export const GridBox = styled.form`
   justify-content: space-between;
   border: 1px solid ${(props) => props.theme.textColor};
   background-color: ${(props) => props.theme.bgColor};
@@ -22,9 +22,9 @@ const GridBox = styled.form`
   margin-bottom: 10px;
 `;
 
-const Text = styled.div``;
+export const Text = styled.div``;
 
-const CopyBtn = styled.button`
+export const CopyBtn = styled.button`
   border: 1px solid ${(props) => props.theme.textColor};
   border-radius: 10px;
   font-size: 14px;
@@ -35,7 +35,7 @@ const CopyBtn = styled.button`
   }
 `;
 
-const CopyText = styled.div`
+export const CopyText = styled.div`
   display: flex;
   justify-content: start;
   align-items: center;
@@ -43,7 +43,6 @@ const CopyText = styled.div`
 `;
 
 function ClanWar(clanData) {
-  console.log(clanData.clanWar);
   const formRef = useRef();
   const [isCopied, setIsCopied] = useState(false);
   const handleCopy = () => {
@@ -63,7 +62,6 @@ function ClanWar(clanData) {
           <div>periodIndex : {clanData.clanWar.data.periodIndex}</div>
           <div>sectionIndex : {clanData.clanWar.data.sectionIndex}</div>
         </div>
-
         <CopyText>{isCopied ? "복사완료 !" : ""}</CopyText>
       </CopyContainer>
       <GridBox ref={formRef}>
