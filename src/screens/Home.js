@@ -17,7 +17,7 @@ const ClanName = styled(motion.li)`
   background-color: ${(props) => props.theme.cardBgColor};
   color: ${(props) => props.theme.textColor};
   border: 1px solid white;
-  margin-bottom: 15px;
+  margin-top: 15px;
   border-radius: 15px;
   a {
     padding: 10px;
@@ -30,7 +30,7 @@ const ClanName = styled(motion.li)`
       color: ${(props) => props.theme.accentColor};
     }
   }
-  box-shadow: 0px 0px 10px rgba(130, 106, 204, 0.5);
+  box-shadow: 0px 0px 20px rgba(130, 106, 204, 0.5);
 `;
 
 const ClanImage = styled.img`

@@ -1,7 +1,7 @@
 import { faCopy } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRef, useState } from "react";
-import { Info, Member, MemberList } from "./ClanMember";
+import { boxVariants, Info, Member, MemberList } from "./ClanMember";
 import { CopyBtn, CopyContainer, CopyText, GridBox, Text } from "./ClanWar";
 
 function ClanDonation(clanData) {
@@ -16,12 +16,22 @@ function ClanDonation(clanData) {
   return (
     <>
       <CopyContainer>
-        <CopyBtn onClick={handleCopy}>
+        <CopyBtn
+          onClick={handleCopy}
+          variants={boxVariants}
+          initial="start"
+          animate="end"
+        >
           복사하기 <FontAwesomeIcon icon={faCopy}></FontAwesomeIcon>
         </CopyBtn>
         <CopyText>{isCopied ? "복사완료 !" : ""}</CopyText>
       </CopyContainer>
-      <GridBox ref={formRef}>
+      <GridBox
+        ref={formRef}
+        variants={boxVariants}
+        initial="start"
+        animate="end"
+      >
         <Text>{`◈${clanData.clanWar.data.clan.name}◈`}</Text>
         <Text>지원률 100 이하 목록</Text>
         <br />

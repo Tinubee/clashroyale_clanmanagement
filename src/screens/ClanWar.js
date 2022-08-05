@@ -1,10 +1,11 @@
 import React from "react";
 import { useRef } from "react";
 import styled from "styled-components";
-import { Info, Member, MemberList } from "./ClanMember";
+import { boxVariants, Info, Member, MemberList } from "./ClanMember";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy } from "@fortawesome/free-regular-svg-icons";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 export const CopyContainer = styled.div`
   display: grid;
@@ -13,7 +14,7 @@ export const CopyContainer = styled.div`
   margin-bottom: 10px;
 `;
 
-export const GridBox = styled.form`
+export const GridBox = styled(motion.div)`
   justify-content: space-between;
   border: 1px solid ${(props) => props.theme.textColor};
   background-color: ${(props) => props.theme.bgColor};
@@ -24,7 +25,7 @@ export const GridBox = styled.form`
 
 export const Text = styled.div``;
 
-export const CopyBtn = styled.button`
+export const CopyBtn = styled(motion.button)`
   border: 1px solid ${(props) => props.theme.textColor};
   border-radius: 10px;
   font-size: 14px;
@@ -55,17 +56,22 @@ function ClanWar(clanData) {
   return (
     <>
       <CopyContainer>
-        <CopyBtn onClick={handleCopy}>
+        <CopyBtn
+          onClick={handleCopy}
+          variants={boxVariants}
+          initial="start"
+          animate="end"
+        >
           복사하기 <FontAwesomeIcon icon={faCopy}></FontAwesomeIcon>
         </CopyBtn>
-        <div>
-          <div>periodType : {clanData.clanWar.data.periodType}</div>
-          <div>periodIndex : {clanData.clanWar.data.periodIndex}</div>
-          <div>sectionIndex : {clanData.clanWar.data.sectionIndex}</div>
-        </div>
         <CopyText>{isCopied ? "복사완료 !" : ""}</CopyText>
       </CopyContainer>
-      <GridBox ref={formRef}>
+      <GridBox
+        ref={formRef}
+        variants={boxVariants}
+        initial="start"
+        animate="end"
+      >
         {clanData.clanWar.data.periodType === "warDay" ? (
           <>
             <Text>{`◈${clanData.clanWar.data.clan.name}◈`}</Text>

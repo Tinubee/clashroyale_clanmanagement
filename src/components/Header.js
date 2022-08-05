@@ -1,4 +1,4 @@
-import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faPeopleGroup } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -35,6 +35,10 @@ const HomeBtn = styled.div`
   }
 `;
 
+const GoToClanMember = styled(HomeBtn)`
+  margin-top: 15px;
+`;
+
 const ClanTitleContainer = styled.div`
   display: flex;
   align-items: center;
@@ -52,7 +56,7 @@ const AloneClanImage = styled(motion.img)`
   border: 5px solid rgb(130, 106, 204);
 `;
 
-const imageVariants = {
+export const imageVariants = {
   initial: {
     opacity: 0,
     scale: 0,
@@ -67,7 +71,7 @@ const imageVariants = {
   },
 };
 
-function Header({ name }) {
+function Header({ name, member, clanTag }) {
   return (
     <>
       <HomeBtn
@@ -81,6 +85,18 @@ function Header({ name }) {
           </Link>
         )}
       </HomeBtn>
+      <GoToClanMember
+        style={{
+          border: name !== "memberInfo" ? "none" : "1px solid white",
+        }}
+      >
+        {name !== "memberInfo" ? null : (
+          <Link to={`/${clanTag.replace("#", "")}/member`}>
+            <FontAwesomeIcon icon={faPeopleGroup}></FontAwesomeIcon> Clan
+            Members
+          </Link>
+        )}
+      </GoToClanMember>
       <Headers
         style={{
           height: name === "Home" ? "360px" : "10vh",
@@ -95,6 +111,10 @@ function Header({ name }) {
               initial="initial"
               animate="visible"
             />
+          ) : name === "Loading..." ? (
+            "Loading..."
+          ) : name === "memberInfo" ? (
+            <span>{member} Information</span>
           ) : (
             <ClanTitleContainer>
               <ClanImage

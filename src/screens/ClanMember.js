@@ -28,26 +28,15 @@ export const Member = styled.li`
 export const Info = styled.h2``;
 const Detail = styled.div``;
 
-const boxVariants = {
+export const boxVariants = {
   start: { opacity: 0 },
   end: {
     opacity: 1,
     scale: 1,
     transition: {
       type: "spring",
-      duration: 0.5,
-      bounce: 0.5,
-      delayChildren: 0.1,
-      staggerChildren: 0.15,
+      duration: 4,
     },
-  },
-};
-
-const memberVariants = {
-  start: { opacity: 0, y: 10 },
-  end: {
-    opacity: 1,
-    y: 0,
   },
 };
 
@@ -56,7 +45,7 @@ function ClanMember(clansMember) {
     <MemberList variants={boxVariants} initial="start" animate="end">
       {clansMember.clanMembers.map((member, index) => {
         return (
-          <GridBox key={index} variants={memberVariants}>
+          <GridBox key={index}>
             <Member>
               <Info>
                 {member.name} : {member.arena.name} [{member.trophies}🏆]

@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const FooterContainer = styled.div`
   text-align: end;
+  margin-top: 50px;
 `;
 
 function Footer() {
