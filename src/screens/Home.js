@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import React from "react";
 import Footer from "../components/Footer";
+import { motion } from "framer-motion";
 
 export const Container = styled.div`
   max-width: 360px;
@@ -21,9 +22,9 @@ export const Title = styled.h1`
   color: ${(props) => props.theme.accentColor};
 `;
 
-const ClanList = styled.ul``;
+const ClanList = styled(motion.ul)``;
 
-const ClanName = styled.li`
+const ClanName = styled(motion.li)`
   background-color: ${(props) => props.theme.cardBgColor};
   color: ${(props) => props.theme.textColor};
   border: 1px solid white;
@@ -42,6 +43,29 @@ const ClanName = styled.li`
   }
 `;
 
+const boxVariants = {
+  start: { opacity: 0, scale: 0.5 },
+  end: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      type: "spring",
+      duration: 0.5,
+      bounce: 0.5,
+      delayChildren: 0.1,
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const clanVariants = {
+  start: { opacity: 0, y: 10 },
+  end: {
+    opacity: 1,
+    y: 0,
+  },
+};
+
 function Home() {
   const clanName = [
     "ALONE 본기",
@@ -57,10 +81,10 @@ function Home() {
       <Header>
         <Title>ALONE 클랜 관리 시스템</Title>
       </Header>
-      <ClanList>
+      <ClanList variants={boxVariants} initial="start" animate="end">
         {clanName.map((name, index) => {
           return (
-            <ClanName key={index}>
+            <ClanName key={index} variants={clanVariants}>
               <Link
                 to={{
                   pathname: `/${clanTag[index]}/member`,
