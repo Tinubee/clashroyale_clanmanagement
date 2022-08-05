@@ -3,23 +3,12 @@ import styled from "styled-components";
 import React from "react";
 import Footer from "../components/Footer";
 import { motion } from "framer-motion";
+import Header from "../components/Header";
 
 export const Container = styled.div`
   max-width: 360px;
   margin: 0 auto;
   height: 90vh;
-`;
-
-export const Header = styled.header`
-  height: 15vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const Title = styled.h1`
-  font-size: 30px;
-  color: ${(props) => props.theme.accentColor};
 `;
 
 const ClanList = styled(motion.ul)``;
@@ -28,10 +17,10 @@ const ClanName = styled(motion.li)`
   background-color: ${(props) => props.theme.cardBgColor};
   color: ${(props) => props.theme.textColor};
   border: 1px solid white;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   border-radius: 15px;
   a {
-    padding: 20px;
+    padding: 10px;
     transition: all 0.2s ease-in;
     display: flex;
     align-items: center;
@@ -41,6 +30,12 @@ const ClanName = styled(motion.li)`
       color: ${(props) => props.theme.accentColor};
     }
   }
+  box-shadow: 0px 0px 10px rgba(130, 106, 204, 0.5);
+`;
+
+const ClanImage = styled.img`
+  width: 50px;
+  height: 50px;
 `;
 
 const boxVariants = {
@@ -51,9 +46,8 @@ const boxVariants = {
     transition: {
       type: "spring",
       duration: 0.5,
-      bounce: 0.5,
-      delayChildren: 0.1,
-      staggerChildren: 0.15,
+      delayChildren: 0.2,
+      staggerChildren: 0.2,
     },
   },
 };
@@ -66,21 +60,27 @@ const clanVariants = {
   },
 };
 
-function Home() {
-  const clanName = [
-    "ALONE 본기",
-    "ALONE 2기",
-    "ALONE 3기",
-    "ALONE Z",
-    "Faded Plus",
-  ];
+export const clanName = [
+  "ALONE",
+  "ALONE 2기",
+  "ALONE 3기",
+  "ALONE Z기",
+  "Faded플러스",
+];
 
+export const clanImage = [
+  "https://cdn.royaleapi.com/static/img/badge/legendary-1/Diamond_Star_03.png?t=0cb94581c",
+  "https://cdn.royaleapi.com/static/img/badge/gold-3/Diamond_Star_03.png?t=27f3c966c",
+  "https://cdn.royaleapi.com/static/img/badge/gold-2/Diamond_Star_03.png?t=327e5052c",
+  "https://cdn.royaleapi.com/static/img/badge/silver-2/Diamond_Star_03.png?t=941aeb7dc",
+  "https://cdn.royaleapi.com/static/img/badge/legendary-1/Diamond_Star_03.png?t=0cb94581c",
+];
+
+function Home() {
   const clanTag = ["YJQRVLGY", "YJY8VJJQ", "YVQ0L9RC", "LPLLYQQU", "PQGQPCC9"];
   return (
     <Container>
-      <Header>
-        <Title>ALONE 클랜 관리 시스템</Title>
-      </Header>
+      <Header name="Home" />
       <ClanList variants={boxVariants} initial="start" animate="end">
         {clanName.map((name, index) => {
           return (
@@ -91,6 +91,7 @@ function Home() {
                   state: clanName[index],
                 }}
               >
+                <ClanImage src={clanImage[index]} alt={name} />
                 <span>{name} &rarr;</span>
               </Link>
             </ClanName>

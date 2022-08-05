@@ -11,11 +11,12 @@ import { getClanData, getClanWarData } from "../api";
 import ClanMember from "./ClanMember";
 import ClanNotice from "./ClanNotice";
 import ClanWar from "./ClanWar";
-import { Container, Header, Title } from "./Home";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { Container } from "./Home";
 import ClanDonation from "./ClanDonation";
 import Footer from "../components/Footer";
+import Header from "../components/Header";
+import { motion } from "framer-motion";
+import ClashRoyaleNotice from "./ClashRoyaleNotice";
 
 const Overview = styled.div`
   display: flex;
@@ -25,7 +26,8 @@ const Overview = styled.div`
   border-radius: 10px;
   margin-bottom: 15px;
 `;
-const OverviewItem = styled.div`
+
+const OverviewItem = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,7 +39,7 @@ const OverviewItem = styled.div`
   }
 `;
 
-const Tabs = styled.div`
+const Tabs = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   margin: 25px 0px;
@@ -59,26 +61,6 @@ const Tab = styled.div`
   }
 `;
 
-const HomeBtn = styled.div`
-  display: flex;
-  margin-top: 80px;
-  background-color: ${(props) => props.theme.cardBgColor};
-  color: ${(props) => props.theme.textColor};
-  border: 1px solid white;
-  border-radius: 15px;
-  justify-content: center;
-  a {
-    padding: 12px;
-    transition: all 0.2s ease-in;
-    align-items: center;
-  }
-  &:hover {
-    a {
-      color: ${(props) => props.theme.accentColor};
-    }
-  }
-`;
-
 function Clan() {
   const { clanTag } = useParams();
 
@@ -86,6 +68,7 @@ function Clan() {
   const clanWarMatch = useRouteMatch("/:clanTag/clanwar");
   const clanNoticeMatch = useRouteMatch("/:clanTag/notice");
   const ClanDonationMatch = useRouteMatch("/:clanTag/donation");
+  const clashNoticeMatch = useRouteMatch("/:clanTag/clashroyale");
 
   const { isLoading: clanDataLoading, data: clanData } = useQuery(
     ["clans", clanTag],
@@ -98,16 +81,10 @@ function Clan() {
   );
 
   const loading = clanWarLoading || clanDataLoading;
+
   return (
     <Container>
-      <HomeBtn>
-        <Link to="/">
-          <FontAwesomeIcon icon={faHome}></FontAwesomeIcon> Home
-        </Link>
-      </HomeBtn>
-      <Header>
-        <Title>{loading ? "Loading..." : clanData?.data?.name}</Title>
-      </Header>
+      <Header name={clanData?.data?.name} />
       {loading ? (
         "Loading..."
       ) : (
@@ -127,6 +104,9 @@ function Clan() {
             </Tab>
             <Tab isActive={clanNoticeMatch !== null}>
               <Link to={`/${clanTag}/notice`}>공지사항</Link>
+            </Tab>
+            <Tab isActive={clashNoticeMatch !== null}>
+              <Link to={`/${clanTag}/clashroyale`}>미정</Link>
             </Tab>
           </Tabs>
 
@@ -148,6 +128,9 @@ function Clan() {
             </Route>
             <Route path={`/:clanTag/notice`}>
               <ClanNotice />
+            </Route>
+            <Route path={`/:clanTag/clashroyale`}>
+              <ClashRoyaleNotice />
             </Route>
           </Switch>
         </>
