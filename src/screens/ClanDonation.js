@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRef, useState } from "react";
 import { boxVariants, Info, Member, MemberList } from "./ClanMember";
 import { CopyBtn, CopyContainer, CopyText, GridBox, Text } from "./ClanWar";
+import { Container } from "./Home";
 
 function ClanDonation(clanData) {
   const formRef = useRef();
@@ -14,7 +15,7 @@ function ClanDonation(clanData) {
     setIsCopied(true);
   };
   return (
-    <>
+    <Container>
       <CopyContainer>
         <CopyBtn
           onClick={handleCopy}
@@ -49,7 +50,7 @@ function ClanDonation(clanData) {
           })}
         </MemberList>
       </GridBox>
-    </>
+    </Container>
   );
 }
 

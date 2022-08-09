@@ -25,3 +25,16 @@ export async function getClanWarData(clanTag) {
     headers,
   });
 }
+
+export async function getUpcomingChests(playerTag) {
+  const tag = playerTag.replace("#", "");
+  return await axios.get(BASE_UTL + `/players/%23${tag}/upcomingchests`, {
+    headers,
+  });
+}
+
+export async function getAllCards() {
+  return await axios.get(BASE_UTL + `/cards`, {
+    headers,
+  });
+}

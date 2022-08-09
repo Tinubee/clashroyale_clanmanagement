@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy } from "@fortawesome/free-regular-svg-icons";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { Container } from "./Home";
 
 export const CopyContainer = styled.div`
   display: grid;
@@ -54,7 +55,7 @@ function ClanWar(clanData) {
   };
 
   return (
-    <>
+    <Container>
       <CopyContainer>
         <CopyBtn
           onClick={handleCopy}
@@ -104,7 +105,7 @@ function ClanWar(clanData) {
           "훈련일 입니다. 클랜전 시작시 알려드릴게요.😀"
         )}
       </GridBox>
-    </>
+    </Container>
   );
 }
 

@@ -8,7 +8,7 @@ const GridBox = styled(motion.div)`
   background-color: ${(props) => props.theme.bgColor};
   padding: 10px 20px;
   border-radius: 10px;
-  margin-bottom: 10px;
+  margin-top: 10px;
 `;
 
 export const MemberList = styled(motion.ul)``;
@@ -40,10 +40,12 @@ export const boxVariants = {
   },
 };
 
-function ClanMember(clansMember) {
+function ClanMember({ clanMembers }) {
   return (
     <MemberList variants={boxVariants} initial="start" animate="end">
-      {clansMember.clanMembers.map((member, index) => {
+      <input placeholder="아이디 검색..." />
+      {clanMembers.map((member, index) => {
+        const reMemberTag = member.tag.replace("#", "");
         return (
           <GridBox key={index}>
             <Member>
@@ -52,8 +54,8 @@ function ClanMember(clansMember) {
               </Info>
               <Link
                 to={{
-                  pathname: `/member/${member.tag}`,
-                  state: member.tag,
+                  pathname: `/member/${reMemberTag}/information`,
+                  state: reMemberTag,
                 }}
               >
                 <Detail>{member.name} 님의 상세정보 &rarr;</Detail>

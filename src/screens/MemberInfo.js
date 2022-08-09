@@ -1,42 +1,89 @@
 import { useQuery } from "react-query";
-import { useParams } from "react-router-dom";
+import {
+  Link,
+  Route,
+  Switch,
+  useParams,
+  useRouteMatch,
+} from "react-router-dom";
 import styled from "styled-components";
 import { getPlayerData } from "../api";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { Container } from "./Home";
+import MemberBadges from "./MemberScreens/MemberBadges";
+import MemberChestCycle from "./MemberScreens/MemberChestCycle";
+import MemberDetail from "./MemberScreens/MemberDetail";
 
-const Tag = styled.div``;
-const Trophies = styled.div``;
+const Tabs = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 25px 0px;
+  gap: 10px;
+`;
 
+const Tab = styled.div`
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 400;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 12px 0px;
+  border-radius: 10px;
+  color: ${(props) =>
+    props.isActive ? props.theme.accentColor : props.theme.textColor};
+  a {
+    display: block;
+  }
+`;
 function MemberInfo() {
   const { memberTag } = useParams();
+  const memberInformationMatch = useRouteMatch(
+    "/member/:memberTag/information"
+  );
+  const memberChestcycleMatch = useRouteMatch("/member/:memberTag/chestcycle");
+  const memberBadgesMatch = useRouteMatch("/member/:memberTag/badges");
+
   const { isLoading, data } = useQuery(["member", memberTag], () =>
     getPlayerData(memberTag)
   );
 
-  console.log(data);
+  return isLoading ? (
+    "Loading..."
+  ) : (
+    <>
+      <Container>
+        <Header
+          name="memberInfo"
+          member={data.data.name}
+          clanTag={data.data.clan.tag}
+        />
+        <Tabs>
+          <Tab isActive={memberInformationMatch !== null}>
+            <Link to={`/member/${memberTag}/information`}>정보</Link>
+          </Tab>
+          <Tab isActive={memberChestcycleMatch !== null}>
+            <Link to={`/member/${memberTag}/chestcycle`}>상자사이클</Link>
+          </Tab>
+          <Tab isActive={memberBadgesMatch !== null}>
+            <Link to={`/member/${memberTag}/badges`}>뱃지</Link>
+          </Tab>
+        </Tabs>
 
-  return (
-    <Container>
-      <Header
-        name={isLoading ? "Loading..." : "memberInfo"}
-        member={isLoading ? "" : data.data.name}
-        clanTag={isLoading ? "" : data.data.clan.tag}
-      />
-      {isLoading ? (
-        "Loading..."
-      ) : (
-        <>
-          <Tag>태그 : {data.data.tag}</Tag>
-          <Trophies>트로피 : {data.data.trophies} 🏆</Trophies>
-          <div>최고 트로피 : {data.data.bestTrophies} 🏆</div>
-          <div>아레나 : {data.data.arena.name}</div>
-          <div>전투수 : {data.data.battleCount} 회</div>
-        </>
-      )}
-      <Footer />
-    </Container>
+        <Switch>
+          <Route path={`/member/:memberTag/information`}>
+            <MemberDetail data={data} />
+          </Route>
+          <Route path={`/member/:memberTag/chestcycle`}>
+            <MemberChestCycle data={data.data.tag} />
+          </Route>
+          <Route path={`/member/:memberTag/badges`}>
+            <MemberBadges badges={data.data.badges} />
+          </Route>
+        </Switch>
+        <Footer />
+      </Container>
+    </>
   );
 }
 

@@ -39,10 +39,10 @@ const OverviewItem = styled(motion.div)`
   }
 `;
 
-const Tabs = styled(motion.div)`
+const Tabs = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  margin: 25px 0px;
+  margin: 15px 0px;
   gap: 10px;
 `;
 
