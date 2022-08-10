@@ -10,6 +10,7 @@ import styled from "styled-components";
 import { getPlayerData } from "../api";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import Loading from "../components/Loading";
 import { Container } from "./Home";
 import MemberBadges from "./MemberScreens/MemberBadges";
 import MemberChestCycle from "./MemberScreens/MemberChestCycle";
@@ -48,42 +49,44 @@ function MemberInfo() {
     getPlayerData(memberTag)
   );
 
-  return isLoading ? (
-    "Loading..."
-  ) : (
-    <>
-      <Container>
-        <Header
-          name="memberInfo"
-          member={data.data.name}
-          clanTag={data.data.clan.tag}
-        />
-        <Tabs>
-          <Tab isActive={memberInformationMatch !== null}>
-            <Link to={`/member/${memberTag}/information`}>정보</Link>
-          </Tab>
-          <Tab isActive={memberChestcycleMatch !== null}>
-            <Link to={`/member/${memberTag}/chestcycle`}>상자사이클</Link>
-          </Tab>
-          <Tab isActive={memberBadgesMatch !== null}>
-            <Link to={`/member/${memberTag}/badges`}>뱃지</Link>
-          </Tab>
-        </Tabs>
+  return (
+    <Container>
+      <Header
+        name="memberInfo"
+        member={isLoading ? "" : data.data.name}
+        clanTag={isLoading ? "" : data.data.clan.tag}
+      />
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <>
+          <Tabs>
+            <Tab isActive={memberInformationMatch !== null}>
+              <Link to={`/member/${memberTag}/information`}>정보</Link>
+            </Tab>
+            <Tab isActive={memberChestcycleMatch !== null}>
+              <Link to={`/member/${memberTag}/chestcycle`}>상자사이클</Link>
+            </Tab>
+            <Tab isActive={memberBadgesMatch !== null}>
+              <Link to={`/member/${memberTag}/badges`}>뱃지</Link>
+            </Tab>
+          </Tabs>
 
-        <Switch>
-          <Route path={`/member/:memberTag/information`}>
-            <MemberDetail data={data} />
-          </Route>
-          <Route path={`/member/:memberTag/chestcycle`}>
-            <MemberChestCycle data={data.data.tag} />
-          </Route>
-          <Route path={`/member/:memberTag/badges`}>
-            <MemberBadges badges={data.data.badges} />
-          </Route>
-        </Switch>
-        <Footer />
-      </Container>
-    </>
+          <Switch>
+            <Route path={`/member/:memberTag/information`}>
+              <MemberDetail data={data} />
+            </Route>
+            <Route path={`/member/:memberTag/chestcycle`}>
+              <MemberChestCycle data={data.data.tag} />
+            </Route>
+            <Route path={`/member/:memberTag/badges`}>
+              <MemberBadges badges={data.data.badges} />
+            </Route>
+          </Switch>
+        </>
+      )}
+      <Footer />
+    </Container>
   );
 }
 

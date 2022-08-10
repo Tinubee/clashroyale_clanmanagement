@@ -1,5 +1,6 @@
 import { useQuery } from "react-query";
 import { getUpcomingChests } from "../../api";
+import Loading from "../../components/Loading";
 import { Container } from "../Home";
 
 function MemberChestCycle(playerTag) {
@@ -11,7 +12,7 @@ function MemberChestCycle(playerTag) {
   return (
     <>
       {isLoading ? (
-        "Loading..."
+        <Loading />
       ) : (
         <Container>
           {data.data.items.map((item) => {

@@ -17,6 +17,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { motion } from "framer-motion";
 import ClashRoyaleNotice from "./ClashRoyaleNotice";
+import Loading from "../components/Loading";
 
 const Overview = styled.div`
   display: flex;
@@ -81,12 +82,11 @@ function Clan() {
   );
 
   const loading = clanWarLoading || clanDataLoading;
-
   return (
     <Container>
       <Header name={clanData?.data?.name} />
       {loading ? (
-        "Loading..."
+        <Loading />
       ) : (
         <>
           <Overview>

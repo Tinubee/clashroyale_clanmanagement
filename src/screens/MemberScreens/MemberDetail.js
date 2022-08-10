@@ -1,4 +1,4 @@
-function MemberDetail() {
+function MemberDetail(data) {
   return <h1>MemberDetail</h1>;
 }
 
