@@ -35,6 +35,7 @@ const Input = styled(motion.input)`
   color: white;
   font-size: 16px;
   border-radius: 5px;
+  width: 160px;
 `;
 
 function SearchBox({ MemberCount }) {
@@ -71,7 +72,7 @@ function SearchBox({ MemberCount }) {
         />
         <motion.svg
           onClick={toggleSearch}
-          animate={{ x: searchOpen ? 160 : 0 }}
+          animate={{ x: searchOpen ? 130 : 0 }}
           transition={{ type: "linear" }}
           fill="currentColor"
           viewBox="0 0 20 20"
