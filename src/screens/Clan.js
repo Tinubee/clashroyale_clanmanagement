@@ -103,7 +103,7 @@ function Clan() {
               <Link to={`/${clanTag}/clanwar`}>클랜전</Link>
             </Tab>
             <Tab isActive={clanNoticeMatch !== null}>
-              <Link to={`/${clanTag}/notice`}>공지사항</Link>
+              <Link to={`/${clanTag}/notice`}>미정</Link>
             </Tab>
             <Tab isActive={clashNoticeMatch !== null}>
               <Link to={`/${clanTag}/clashroyale`}>미정</Link>

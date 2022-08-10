@@ -1,0 +1,48 @@
+{
+  "chestData": [
+    {
+      "name": "Silver Chest",
+      "imageUrl": "https://res.cloudinary.com/dmvu7wol7/image/upload/v1651679474/%ED%81%B4%EB%9E%98%EC%8B%9C%EB%A1%9C%EC%96%84/chest%20silver.png"
+    },
+    {
+      "name": "Golden Chest",
+      "imageUrl": "https://res.cloudinary.com/dmvu7wol7/image/upload/v1651679473/클래시로얄/chest%20golden.png"
+    },
+    {
+      "name": "Giant Chest",
+      "imageUrl": "https://res.cloudinary.com/dmvu7wol7/image/upload/v1651679473/클래시로얄/chest%20giant.png"
+    },
+    {
+      "name": "Gold Crate",
+      "imageUrl": "https://res.cloudinary.com/dmvu7wol7/image/upload/v1651679473/클래시로얄/chest%20goldcrate.png"
+    },
+    {
+      "name": "Plentiful Gold Crate",
+      "imageUrl": "https://res.cloudinary.com/dmvu7wol7/image/upload/v1651679474/클래시로얄/chest%20plentifulgoldcrate.png"
+    },
+    {
+      "name": "Magical Chest",
+      "imageUrl": "https://res.cloudinary.com/dmvu7wol7/image/upload/v1651679473/클래시로얄/chest%20magical.png"
+    },
+    {
+      "name": "Mega Lightning Chest",
+      "imageUrl": "https://res.cloudinary.com/dmvu7wol7/image/upload/v1651679474/클래시로얄/chest%20megalightning.png"
+    },
+    {
+      "name": "Epic Chest",
+      "imageUrl": "https://res.cloudinary.com/dmvu7wol7/image/upload/v1651679473/클래시로얄/chest%20epic.png"
+    },
+    {
+      "name": "Legendary Chest",
+      "imageUrl": "https://res.cloudinary.com/dmvu7wol7/image/upload/v1651679473/클래시로얄/chest%20legendary.png"
+    },
+    {
+      "name": "Overflowing Gold Crate",
+      "imageUrl": "https://res.cloudinary.com/dmvu7wol7/image/upload/v1651679474/클래시로얄/chest%20overflowinggoldcrate.png"
+    },
+    {
+      "name": "Royal Wild Chest",
+      "imageUrl": "https://res.cloudinary.com/dmvu7wol7/image/upload/v1651679474/클래시로얄/chest%20royalwild.png"
+    }
+  ]
+}

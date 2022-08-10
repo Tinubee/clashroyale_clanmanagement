@@ -1,5 +1,5 @@
 function ClanNotice() {
-  return <h1>클랜 공지사항</h1>;
+  return <h1>미정</h1>;
 }
 
 export default ClanNotice;
