@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/clashroyale_clanmanagement/static/js/main.53a1431e.js",
+    "main.js": "/clashroyale_clanmanagement/static/js/main.d36042c8.js",
     "index.html": "/clashroyale_clanmanagement/index.html",
-    "main.53a1431e.js.map": "/clashroyale_clanmanagement/static/js/main.53a1431e.js.map"
+    "main.d36042c8.js.map": "/clashroyale_clanmanagement/static/js/main.d36042c8.js.map"
   },
   "entrypoints": [
-    "static/js/main.53a1431e.js"
+    "static/js/main.d36042c8.js"
   ]
 }
