@@ -1,6 +1,12 @@
 import styled from "styled-components";
 
-const BadgeContainer = styled.div``;
+const BadgeContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  border: 1px solid white;
+  border-radius: 15px;
+`;
 
 const BadgeImage = styled.img`
   width: 100px;
