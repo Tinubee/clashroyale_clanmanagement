@@ -64,7 +64,11 @@ function ClanMember({ clanMembers }) {
   const searchCompleteMember = searchMemberList(search, clanMembers);
   return (
     <MemberList variants={boxVariants} initial="start" animate="end">
-      <SearchBox />
+      <SearchBox
+        MemberCount={
+          search === "" ? clanMembers.length : searchCompleteMember.length
+        }
+      />
       {searchCompleteMember.map((member, index) => {
         const reMemberTag = member.tag.replace("#", "");
         return (
