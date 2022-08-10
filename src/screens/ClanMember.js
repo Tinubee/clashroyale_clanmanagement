@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import SearchBox from "../components/SearchBox";
-import { useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 import { serachIdAtom } from "../atoms";
 import { useEffect } from "react";
 
@@ -55,11 +55,15 @@ const searchMemberList = (search, clanMembers) => {
 };
 
 function ClanMember({ clanMembers }) {
-  const search = useRecoilValue(serachIdAtom);
+  const [search, setSearchId] = useRecoilState(serachIdAtom);
 
   useEffect(() => {
     searchMemberList(search, clanMembers);
   }, [search, clanMembers]);
+
+  useEffect(() => {
+    setSearchId("");
+  }, [setSearchId]);
 
   const searchCompleteMember = searchMemberList(search, clanMembers);
   return (
