@@ -50,12 +50,18 @@ function MemberChestCycle(playerTag) {
         <Loading />
       ) : (
         <ImageContainer>
-          {data.data.items.map((item, index) => {
+          {data.data.items.map((item) => {
             return (
-              <ChestInfo key={index}>
-                {allChestList.map((data) => {
+              <ChestInfo key={item.index}>
+                {allChestList.map((data, index) => {
                   if (data.name === item.name) {
-                    return <ChestImage src={data.imageUrl} alt={item.name} />;
+                    return (
+                      <ChestImage
+                        key={index}
+                        src={data.imageUrl}
+                        alt={item.name}
+                      />
+                    );
                   } else return null;
                 })}
                 <CircularLabel>+{item.index}</CircularLabel>
