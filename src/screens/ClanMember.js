@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import SearchBox from "../components/SearchBox";
+import { useRecoilValue } from "recoil";
+import { serachIdAtom } from "../atoms";
+import { useEffect } from "react";
 
 const GridBox = styled(motion.div)`
   display: flex;
@@ -41,11 +44,28 @@ export const boxVariants = {
   },
 };
 
+const searchMemberList = (search, clanMembers) => {
+  if (search === "") {
+    return clanMembers;
+  } else {
+    return clanMembers.filter((member) => {
+      return member.name.toUpperCase().includes(search.toUpperCase());
+    });
+  }
+};
+
 function ClanMember({ clanMembers }) {
+  const search = useRecoilValue(serachIdAtom);
+
+  useEffect(() => {
+    searchMemberList(search, clanMembers);
+  }, [search, clanMembers]);
+
+  const searchCompleteMember = searchMemberList(search, clanMembers);
   return (
     <MemberList variants={boxVariants} initial="start" animate="end">
       <SearchBox />
-      {clanMembers.map((member, index) => {
+      {searchCompleteMember.map((member, index) => {
         const reMemberTag = member.tag.replace("#", "");
         return (
           <GridBox key={index}>

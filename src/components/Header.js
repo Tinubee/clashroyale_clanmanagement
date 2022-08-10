@@ -114,7 +114,7 @@ function Header({ name, member, clanTag }) {
           ) : name === "Loading..." ? (
             "Loading..."
           ) : name === "memberInfo" ? (
-            <span>{member} Information</span>
+            <span>{member === "" ? "" : `${member} Information`}</span>
           ) : (
             <ClanTitleContainer>
               <ClanImage

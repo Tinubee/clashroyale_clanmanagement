@@ -1,6 +1,8 @@
 import { motion, useAnimation } from "framer-motion";
 import { useState } from "react";
 import styled from "styled-components";
+import { useSetRecoilState } from "recoil";
+import { serachIdAtom } from "../atoms";
 
 const Search = styled.span`
   color: white;
@@ -26,6 +28,8 @@ const Input = styled(motion.input)`
 function SearchBox() {
   const [searchOpen, setSearchOpen] = useState(false);
   const inputAnimation = useAnimation();
+  const setSearch = useSetRecoilState(serachIdAtom);
+
   const toggleSearch = () => {
     if (searchOpen) {
       inputAnimation.start({
@@ -36,6 +40,13 @@ function SearchBox() {
     }
     setSearchOpen((prev) => !prev);
   };
+
+  const searchID = (e) => {
+    e.preventDefault();
+    const searchIdName = e.target.value;
+    setSearch(searchIdName);
+  };
+
   return (
     <Search>
       <Input
@@ -43,6 +54,7 @@ function SearchBox() {
         initial={{ scaleX: 0 }}
         transition={{ type: "linear" }}
         placeholder="Search ID..."
+        onChange={searchID}
       />
       <motion.svg
         onClick={toggleSearch}
