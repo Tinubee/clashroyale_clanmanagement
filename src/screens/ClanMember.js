@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import SearchBox from "../components/SearchBox";
 
 const GridBox = styled(motion.div)`
   display: flex;
@@ -43,7 +44,7 @@ export const boxVariants = {
 function ClanMember({ clanMembers }) {
   return (
     <MemberList variants={boxVariants} initial="start" animate="end">
-      <input placeholder="아이디 검색..." />
+      <SearchBox />
       {clanMembers.map((member, index) => {
         const reMemberTag = member.tag.replace("#", "");
         return (
