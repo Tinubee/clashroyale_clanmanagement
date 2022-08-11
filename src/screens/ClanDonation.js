@@ -2,7 +2,8 @@ import { faCopy } from "@fortawesome/free-regular-svg-icons";
 import { faIdBadge, faTags } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRef, useState } from "react";
-import { boxVariants, Info, Member, MemberList } from "./ClanMember";
+import styled from "styled-components";
+import { boxVariants, MemberList } from "./ClanMember";
 import {
   CopyBtn,
   CopyContainer,
@@ -14,6 +15,12 @@ import {
   Text,
 } from "./ClanWar";
 import { Container } from "./Home";
+
+export const MapMemberContainer = styled.span`
+  display: "";
+`;
+
+export const MapMember = styled.span``;
 
 function ClanDonation(clanData) {
   const formRef = useRef();
@@ -58,15 +65,18 @@ function ClanDonation(clanData) {
         <MemberList>
           {clanData.clanMembers.map((member, index) => {
             return (
-              <Member key={index}>
-                <Info>
+              <MapMemberContainer
+                key={index}
+                style={{ display: modeId ? "block" : "" }}
+              >
+                <MapMember>
                   {member.donations < 100
                     ? modeId
                       ? `${member.name} - ${member.donations}`
-                      : `@${member.name}`
+                      : ` @${member.name}`
                     : null}
-                </Info>
-              </Member>
+                </MapMember>
+              </MapMemberContainer>
             );
           })}
         </MemberList>

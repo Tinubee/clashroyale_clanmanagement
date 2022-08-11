@@ -1,13 +1,14 @@
 import React from "react";
 import { useRef } from "react";
 import styled from "styled-components";
-import { boxVariants, Info, Member, MemberList } from "./ClanMember";
+import { boxVariants, MemberList } from "./ClanMember";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy } from "@fortawesome/free-regular-svg-icons";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Container } from "./Home";
 import { faIdBadge, faTags } from "@fortawesome/free-solid-svg-icons";
+import { MapMember, MapMemberContainer } from "./ClanDonation";
 
 export const CopyContainer = styled.div`
   display: grid;
@@ -93,19 +94,23 @@ function ClanWar(clanData) {
         initial="start"
         animate="end"
       >
-        {clanData.clanWar.data.periodType !== "warDay" ? (
+        {clanData.clanWar.data.periodType === "warDay" ? (
           <>
             <Text>{`◈${clanData.clanWar.data.clan.name}◈`}</Text>
             <Text>
-              전투일 {clanData.clanWar.data.periodIndex - 2}일차 클랜전 남은
-              전쟁덱
+              전투일 {(clanData.clanWar.data.periodIndex % 7) - 2}일차 클랜전
+              남은 전쟁덱
             </Text>
             <br />
             <MemberList>
               {clanData.clanMembers.map((member, index) => {
+                console.log(member);
                 return (
-                  <Member key={index}>
-                    <Info>
+                  <MapMemberContainer
+                    key={index}
+                    style={{ display: modeId ? "block" : "" }}
+                  >
+                    <MapMember>
                       {clanData.clanWar.data.clan.participants.map((par) => {
                         if (
                           par.tag === member.tag &&
@@ -116,13 +121,13 @@ function ClanWar(clanData) {
                               4 - par.decksUsedToday
                             }회`;
                           } else {
-                            return `@${member.name}`;
+                            return ` @${member.name}`;
                           }
                         }
                         return null;
                       })}
-                    </Info>
-                  </Member>
+                    </MapMember>
+                  </MapMemberContainer>
                 );
               })}
             </MemberList>
