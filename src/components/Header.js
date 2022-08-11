@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { clanImage, clanName } from "../screens/Home";
+import Footer from "./Footer";
 
 const Headers = styled.header`
   display: flex;
@@ -18,7 +19,7 @@ const Title = styled.h1`
 
 const HomeBtn = styled.div`
   display: flex;
-  margin-top: 80px;
+  margin-top: 20px;
   background-color: ${(props) => props.theme.cardBgColor};
   color: ${(props) => props.theme.textColor};
   border-radius: 15px;
@@ -74,6 +75,7 @@ export const imageVariants = {
 function Header({ name, member, clanTag }) {
   return (
     <>
+      <Footer />
       <HomeBtn
         style={{
           border: name === "Home" ? "none" : "1px solid white",

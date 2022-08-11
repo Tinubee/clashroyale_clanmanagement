@@ -7,10 +7,11 @@ import { faCopy } from "@fortawesome/free-regular-svg-icons";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Container } from "./Home";
+import { faIdBadge, faTags } from "@fortawesome/free-solid-svg-icons";
 
 export const CopyContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   margin-bottom: 10px;
 `;
@@ -44,9 +45,20 @@ export const CopyText = styled.div`
   color: ${(props) => props.theme.accentColor};
 `;
 
+export const ModeContainer = styled(motion.div)`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+`;
+export const ModeId = styled(CopyBtn)``;
+export const ModeTag = styled(CopyBtn)``;
+
 function ClanWar(clanData) {
   const formRef = useRef();
   const [isCopied, setIsCopied] = useState(false);
+  const [modeId, setModeId] = useState(true);
   const handleCopy = () => {
     //get text in formRef
     const text = formRef.current.innerText;
@@ -67,13 +79,21 @@ function ClanWar(clanData) {
         </CopyBtn>
         <CopyText>{isCopied ? "복사완료 !" : ""}</CopyText>
       </CopyContainer>
+      <ModeContainer variants={boxVariants} initial="start" animate="end">
+        <ModeId onClick={() => setModeId(true)}>
+          아이디로 보기 <FontAwesomeIcon icon={faIdBadge}></FontAwesomeIcon>
+        </ModeId>
+        <ModeTag onClick={() => setModeId(false)}>
+          태그로 보기 <FontAwesomeIcon icon={faTags}></FontAwesomeIcon>
+        </ModeTag>
+      </ModeContainer>
       <GridBox
         ref={formRef}
         variants={boxVariants}
         initial="start"
         animate="end"
       >
-        {clanData.clanWar.data.periodType === "warDay" ? (
+        {clanData.clanWar.data.periodType !== "warDay" ? (
           <>
             <Text>{`◈${clanData.clanWar.data.clan.name}◈`}</Text>
             <Text>
@@ -91,7 +111,13 @@ function ClanWar(clanData) {
                           par.tag === member.tag &&
                           par.decksUsedToday !== 4
                         ) {
-                          return `${member.name} - ${4 - par.decksUsedToday}회`;
+                          if (modeId) {
+                            return `${member.name} - ${
+                              4 - par.decksUsedToday
+                            }회`;
+                          } else {
+                            return `@${member.name}`;
+                          }
                         }
                         return null;
                       })}

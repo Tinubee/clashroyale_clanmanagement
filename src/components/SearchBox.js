@@ -17,6 +17,9 @@ const Search = styled.span`
   align-items: center;
   svg {
     height: 25px;
+    :hover {
+      cursor: pointer;
+    }
   }
 `;
 
@@ -84,10 +87,18 @@ function SearchBox({ MemberCount }) {
             clipRule="evenodd"
           ></path>
         </motion.svg>
+        {searchOpen ? "" : " ⬅️ Click To Search ID"}
       </Search>
-      <SearchResult>
+      <SearchResult
+        style={{
+          background:
+            MemberCount === 0 && searchId !== ""
+              ? "linear-gradient(to bottom left, #EF8D9C 40%, #FFC39E 100%)"
+              : "rgb(128, 128, 128, 0.3)",
+        }}
+      >
         {MemberCount === 0
-          ? "검색 인원 없음"
+          ? "⚠️ 검색 인원 없음"
           : searchId !== ""
           ? `검색 인원 수 : ${MemberCount}명`
           : `전체 클랜원 수 : ${MemberCount}명`}

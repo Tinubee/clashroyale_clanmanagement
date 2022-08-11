@@ -5,6 +5,7 @@ import SearchBox from "../components/SearchBox";
 import { useRecoilState } from "recoil";
 import { serachIdAtom } from "../atoms";
 import { useEffect } from "react";
+import ScoreBox from "../components/ScoreBox";
 
 const GridBox = styled(motion.div)`
   display: flex;
@@ -15,9 +16,9 @@ const GridBox = styled(motion.div)`
   margin-top: 10px;
 `;
 
-export const MemberList = styled(motion.ul)``;
+export const MemberList = styled.div``;
 
-export const Member = styled.li`
+export const Member = styled.div`
   a {
     margin-left: 10px;
     transition: all 0.2s ease-in;
@@ -73,6 +74,7 @@ function ClanMember({ clanMembers }) {
           search === "" ? clanMembers.length : searchCompleteMember.length
         }
       />
+      <ScoreBox clanMembers={clanMembers} />
       {searchCompleteMember.map((member, index) => {
         const reMemberTag = member.tag.replace("#", "");
         return (

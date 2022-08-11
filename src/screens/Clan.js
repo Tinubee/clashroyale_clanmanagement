@@ -13,7 +13,6 @@ import ClanNotice from "./ClanNotice";
 import ClanWar from "./ClanWar";
 import { Container } from "./Home";
 import ClanDonation from "./ClanDonation";
-import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { motion } from "framer-motion";
 import ClashRoyaleNotice from "./ClashRoyaleNotice";
@@ -135,7 +134,6 @@ function Clan() {
           </Switch>
         </>
       )}
-      <Footer />
     </Container>
   );
 }

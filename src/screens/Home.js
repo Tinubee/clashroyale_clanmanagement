@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import React from "react";
-import Footer from "../components/Footer";
 import { motion } from "framer-motion";
 import Header from "../components/Header";
 
 export const Container = styled.div`
   max-width: 360px;
   margin: 0 auto;
-  height: 90vh;
+  height: 100vh;
+  margin-bottom: 100px;
 `;
 
 const ClanList = styled(motion.ul)``;
@@ -98,7 +98,6 @@ function Home() {
           );
         })}
       </ClanList>
-      <Footer />
     </Container>
   );
 }
