@@ -96,11 +96,17 @@ function ClanWar(clanData) {
       >
         {clanData.clanWar.data.periodType === "warDay" ? (
           <>
-            <Text>{`◈${clanData.clanWar.data.clan.name}◈`}</Text>
-            <Text>
-              전투일 {(clanData.clanWar.data.periodIndex % 7) - 2}일차 클랜전
-              남은 전쟁덱
-            </Text>
+            {modeId ? (
+              <>
+                <Text>{`◈${clanData.clanWar.data.clan.name}◈`}</Text>
+                <Text>
+                  전투일 {(clanData.clanWar.data.periodIndex % 7) - 2}일차
+                  클랜전 남은 전쟁덱
+                </Text>
+              </>
+            ) : (
+              ""
+            )}
             <br />
             <MemberList>
               {clanData.clanMembers.map((member, index) => {

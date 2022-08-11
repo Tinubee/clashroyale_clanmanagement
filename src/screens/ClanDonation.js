@@ -59,8 +59,14 @@ function ClanDonation(clanData) {
         initial="start"
         animate="end"
       >
-        <Text>{`◈${clanData.clanWar.data.clan.name}◈`}</Text>
-        <Text>지원률 100 이하 목록</Text>
+        {modeId ? (
+          <>
+            <Text>{`◈${clanData.clanWar.data.clan.name}◈`}</Text>
+            <Text>지원률 100 이하 목록</Text>
+          </>
+        ) : (
+          ""
+        )}
         <br />
         <MemberList>
           {clanData.clanMembers.map((member, index) => {
