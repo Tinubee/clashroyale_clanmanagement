@@ -60,23 +60,28 @@ function ClanWar(clanData) {
   const formRef = useRef();
   const [isCopied, setIsCopied] = useState(false);
   const [modeId, setModeId] = useState(true);
-  const handleCopy = () => {
-    //get text in formRef
+
+  console.log(clanData);
+
+  const handleBtn = () => {
+    //get text in formRe
     const text = formRef.current.innerText;
     navigator.clipboard.writeText(text);
     setIsCopied(true);
+    setTimeout(() => setIsCopied(false), 2000);
   };
 
   return (
     <Container>
       <CopyContainer>
         <CopyBtn
-          onClick={handleCopy}
+          onClick={handleBtn}
           variants={boxVariants}
           initial="start"
           animate="end"
         >
-          복사하기 <FontAwesomeIcon icon={faCopy}></FontAwesomeIcon>
+          복사하기
+          <FontAwesomeIcon icon={faCopy}></FontAwesomeIcon>
         </CopyBtn>
         <CopyText>{isCopied ? "복사완료 !" : ""}</CopyText>
       </CopyContainer>
@@ -110,7 +115,6 @@ function ClanWar(clanData) {
             <br />
             <MemberList>
               {clanData.clanMembers.map((member, index) => {
-                console.log(member);
                 return (
                   <MapMemberContainer
                     key={index}

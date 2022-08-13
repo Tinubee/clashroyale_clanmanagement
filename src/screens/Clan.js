@@ -9,7 +9,6 @@ import {
 import styled from "styled-components";
 import { getClanData, getClanWarData } from "../api";
 import ClanMember from "./ClanMember";
-import ClanNotice from "./ClanNotice";
 import ClanWar from "./ClanWar";
 import { Container } from "./Home";
 import ClanDonation from "./ClanDonation";
@@ -17,6 +16,7 @@ import Header from "../components/Header";
 import { motion } from "framer-motion";
 import ClashRoyaleNotice from "./ClashRoyaleNotice";
 import Loading from "../components/Loading";
+import ClanWarning from "./ClanWarning";
 
 const Overview = styled.div`
   display: flex;
@@ -66,7 +66,7 @@ function Clan() {
 
   const clanMemberMatch = useRouteMatch("/:clanTag/member");
   const clanWarMatch = useRouteMatch("/:clanTag/clanwar");
-  const clanNoticeMatch = useRouteMatch("/:clanTag/notice");
+  const clanWarningMatch = useRouteMatch("/:clanTag/warning");
   const ClanDonationMatch = useRouteMatch("/:clanTag/donation");
   const clashNoticeMatch = useRouteMatch("/:clanTag/clashroyale");
 
@@ -101,8 +101,8 @@ function Clan() {
             <Tab isActive={clanWarMatch !== null}>
               <Link to={`/${clanTag}/clanwar`}>클랜전</Link>
             </Tab>
-            <Tab isActive={clanNoticeMatch !== null}>
-              <Link to={`/${clanTag}/notice`}>미정</Link>
+            <Tab isActive={clanWarningMatch !== null}>
+              <Link to={`/${clanTag}/warning`}>경고명단</Link>
             </Tab>
             <Tab isActive={clashNoticeMatch !== null}>
               <Link to={`/${clanTag}/clashroyale`}>미정</Link>
@@ -125,8 +125,8 @@ function Clan() {
                 clanMembers={clanData?.data?.memberList}
               />
             </Route>
-            <Route path={`/:clanTag/notice`}>
-              <ClanNotice />
+            <Route path={`/:clanTag/warning`}>
+              <ClanWarning />
             </Route>
             <Route path={`/:clanTag/clashroyale`}>
               <ClashRoyaleNotice />

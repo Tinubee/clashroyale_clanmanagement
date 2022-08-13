@@ -10,14 +10,14 @@ import { useState } from "react";
 import styled from "styled-components";
 import { CopyBtn, CopyText } from "../screens/ClanWar";
 
-const Top = styled.div`
+export const Top = styled.div`
   display: flex;
   margin: 10px;
   justify-content: space-between;
   align-items: center;
 `;
 
-const TopText = styled.div`
+export const TopText = styled.div`
   background-color: rgba(0, 0, 0, 1);
   padding: 10px;
   border-radius: 5px;
@@ -54,7 +54,7 @@ const Text = styled.span`
   margin-left: 10px;
 `;
 
-const CancleIcon = styled(motion.div)`
+export const CancleIcon = styled(motion.div)`
   cursor: pointer;
   svg {
     font-size: 30px;
@@ -78,7 +78,7 @@ const Icon = styled(motion.div)`
   }
 `;
 
-const Overlay = styled(motion.div)`
+export const Overlay = styled(motion.div)`
   width: 100vw;
   height: 100vh;
   position: absolute;
@@ -95,13 +95,13 @@ const CopyContainer = styled.div`
   margin-left: 10px;
 `;
 
-const overlay = {
+export const overlay = {
   hidden: { backgroundColor: "rgba(0, 0, 0, 0)" },
   visible: { backgroundColor: "rgba(0, 0, 0, 0.5)" },
   exit: { backgroundColor: "rgba(0, 0, 0, 0)" },
 };
 
-const Box = styled(motion.div)`
+export const Box = styled(motion.div)`
   background-color: rgba(255, 255, 255, 1);
   border-radius: 10px;
   height: 400px;

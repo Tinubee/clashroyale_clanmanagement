@@ -31,6 +31,7 @@ function ClanDonation(clanData) {
     const text = formRef.current.innerText;
     navigator.clipboard.writeText(text);
     setIsCopied(true);
+    setTimeout(() => setIsCopied(false), 2000);
   };
   return (
     <Container>
