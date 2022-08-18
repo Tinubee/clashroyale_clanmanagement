@@ -70,7 +70,7 @@ export const clanName = [
 
 export const clanImage = [
   "https://cdn.royaleapi.com/static/img/badge/legendary-1/Diamond_Star_03.png?t=0cb94581c",
-  "https://cdn.royaleapi.com/static/img/badge/gold-3/Diamond_Star_03.png?t=27f3c966c",
+  "https://cdn.royaleapi.com/static/img/badge/legendary-1/Diamond_Star_03.png?t=0cb94581c",
   "https://cdn.royaleapi.com/static/img/badge/gold-2/Diamond_Star_03.png?t=327e5052c",
   "https://cdn.royaleapi.com/static/img/badge/silver-2/Diamond_Star_03.png?t=941aeb7dc",
   "https://cdn.royaleapi.com/static/img/badge/legendary-1/Diamond_Star_03.png?t=0cb94581c",
@@ -78,6 +78,7 @@ export const clanImage = [
 
 function Home() {
   const clanTag = ["YJQRVLGY", "YJY8VJJQ", "YVQ0L9RC", "LPLLYQQU", "PQGQPCC9"];
+
   return (
     <Container>
       <Header name="Home" />
