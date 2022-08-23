@@ -61,8 +61,6 @@ function ClanWar(clanData) {
   const [isCopied, setIsCopied] = useState(false);
   const [modeId, setModeId] = useState(true);
 
-  console.log(clanData);
-
   const handleBtn = () => {
     //get text in formRe
     const text = formRef.current.innerText;

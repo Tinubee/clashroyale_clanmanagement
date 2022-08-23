@@ -23,8 +23,11 @@ const GridBox = styled(motion.div)`
 export const MemberList = styled.div``;
 
 export const Member = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 10vh;
+  justify-content: space-between;
   a {
-    margin-left: 10px;
     transition: all 0.2s ease-in;
   }
   &:hover {
@@ -73,6 +76,14 @@ const SettingContainer = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
+
+const LastSeenContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+const LastSeenText = styled.div``;
+
+const LastSeenTime = styled.div``;
 export const boxVariants = {
   start: { opacity: 0 },
   end: {
@@ -114,7 +125,6 @@ function ClanMember({ clanMembers }) {
 
   const addKakoRoomMember = (e) => {
     e.preventDefault();
-    console.log(e.target.innerText);
     if (inKakaoRoomMember.includes(e.target.innerText)) {
       setInKakaoRoomMember((prev) =>
         prev.filter((member) => member !== e.target.innerText)
@@ -125,6 +135,22 @@ function ClanMember({ clanMembers }) {
   };
 
   const searchCompleteMember = searchMemberList(search, clanMembers);
+
+  const TimeFormat = (time) => {
+    const inputTime =
+      time.slice(0, 4) +
+      "-" +
+      time.slice(4, 6) +
+      "-" +
+      time.slice(6, 8) +
+      time.slice(8, 11) +
+      ":" +
+      time.slice(11, 13) +
+      ":" +
+      time.slice(13, time.length);
+    const FormatDate = new Date(inputTime);
+    return FormatDate.toLocaleString();
+  };
 
   return (
     <>
@@ -193,6 +219,10 @@ function ClanMember({ clanMembers }) {
                   <Info>
                     {member.name} : {member.arena.name} [{member.trophies}🏆]
                   </Info>
+                  <LastSeenContainer>
+                    <LastSeenText>마지막 접속 시간 : </LastSeenText>
+                    <LastSeenTime>{TimeFormat(member.lastSeen)}</LastSeenTime>
+                  </LastSeenContainer>
                   <Link
                     to={{
                       pathname: `/member/${reMemberTag}/information`,
