@@ -69,6 +69,8 @@ function ClanWar(clanData) {
     setTimeout(() => setIsCopied(false), 2000);
   };
 
+  console.log(clanData);
+
   return (
     <Container>
       <CopyContainer>
@@ -97,7 +99,42 @@ function ClanWar(clanData) {
         initial="start"
         animate="end"
       >
-        {clanData.clanWar.data.periodType === "warDay" ? (
+        {modeId ? (
+          <>
+            <Text>{`◈${clanData.clanWar.data.clan.name}◈`}</Text>
+            <Text>
+              전투일 {(clanData.clanWar.data.periodIndex % 7) - 2}일차 클랜전
+              남은 전쟁덱
+            </Text>
+          </>
+        ) : (
+          ""
+        )}
+        <br />
+        <MemberList>
+          {clanData.clanMembers.map((member, index) => {
+            return (
+              <MapMemberContainer
+                key={index}
+                style={{ display: modeId ? "block" : "" }}
+              >
+                <MapMember>
+                  {clanData.clanWar.data.clan.participants.map((par) => {
+                    if (par.tag === member.tag && par.decksUsedToday !== 4) {
+                      if (modeId) {
+                        return `${member.name} - ${4 - par.decksUsedToday}회`;
+                      } else {
+                        return ` @${member.name}`;
+                      }
+                    }
+                    return null;
+                  })}
+                </MapMember>
+              </MapMemberContainer>
+            );
+          })}
+        </MemberList>
+        {/*         {clanData.clanWar.data.periodType === "warDay" ? (
           <>
             {modeId ? (
               <>
@@ -142,7 +179,7 @@ function ClanWar(clanData) {
           </>
         ) : (
           "훈련일 입니다. 클랜전 시작시 알려드릴게요.😀"
-        )}
+        )} */}
       </GridBox>
     </Container>
   );
