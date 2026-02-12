@@ -69,13 +69,14 @@ export const clanName = [
 ];
 
 export const clanImage = [
-  "https://cdn.royaleapi.com/static/img/badge/legendary-2/Diamond_Star_03.png?t=update01",
-  "https://cdn.royaleapi.com/static/img/badge/legendary-2/Diamond_Star_03.png?t=update01",
-  "https://cdn.royaleapi.com/static/img/badge/legendary-2/Diamond_Star_03.png?t=update01",
-  "https://cdn.royaleapi.com/static/img/badge/legendary-2/Diamond_Star_03.png?t=update01",
-  "https://cdn.royaleapi.com/static/img/badge/legendary-2/Diamond_Star_03.png?t=update01",
+  "https://cdn.royaleapi.com/static/img/badge/legendary-2/Diamond_Star_03.png",
+  "https://cdn.royaleapi.com/static/img/badge/legendary-2/Diamond_Star_03.png",
+  "https://cdn.royaleapi.com/static/img/badge/legendary-2/Diamond_Star_03.png",
+  "https://cdn.royaleapi.com/static/img/badge/legendary-2/Diamond_Star_03.png",
+  "https://cdn.royaleapi.com/static/img/badge/legendary-2/Diamond_Star_03.png",
 ];
-
+export const clanImageUrl =
+  "https://cdn.royaleapi.com/static/img/badge/legendary-2/Diamond_Star_03.png";
 // export const clanImage = [
 //   "https://cdn.royaleapi.com/static/img/badge/legendary-2/Diamond_Star_03.png?t=0cb94582c",
 //   "https://cdn.royaleapi.com/static/img/badge/legendary-2/Diamond_Star_03.png?t=0cb94581c",
@@ -100,7 +101,7 @@ function Home() {
                   state: clanName[index],
                 }}
               >
-                <ClanImage src={clanImage[index]} alt={name} />
+                <ClanImage src={clanImageUrl} alt={name} />
                 <span>{name} &rarr;</span>
               </Link>
             </ClanName>
