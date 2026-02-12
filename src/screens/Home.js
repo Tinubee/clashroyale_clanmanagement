@@ -68,22 +68,15 @@ export const clanName = [
   "Faded플러스",
 ];
 
-export const clanImage = [
-  "https://cdn.royaleapi.com/static/img/badge/legendary-2/Diamond_Star_03.png",
-  "https://cdn.royaleapi.com/static/img/badge/legendary-2/Diamond_Star_03.png",
-  "https://cdn.royaleapi.com/static/img/badge/legendary-2/Diamond_Star_03.png",
-  "https://cdn.royaleapi.com/static/img/badge/legendary-2/Diamond_Star_03.png",
-  "https://cdn.royaleapi.com/static/img/badge/legendary-2/Diamond_Star_03.png",
-];
-export const clanImageUrl =
-  "https://cdn.royaleapi.com/static/img/badge/legendary-2/Diamond_Star_03.png";
 // export const clanImage = [
-//   "https://cdn.royaleapi.com/static/img/badge/legendary-2/Diamond_Star_03.png?t=0cb94582c",
-//   "https://cdn.royaleapi.com/static/img/badge/legendary-2/Diamond_Star_03.png?t=0cb94581c",
-//   "https://cdn.royaleapi.com/static/img/badge/legendary-2/Diamond_Star_03.png?t=0cb94581c",
-//   "https://cdn.royaleapi.com/static/img/badge/legendary-2/Diamond_Star_03.png?t=0cb94581c",
-//   "https://cdn.royaleapi.com/static/img/badge/legendary-2/Diamond_Star_03.png?t=0cb94581c",
+//   "https://cdn.royaleapi.com/static/img/badge/legendary-1/Diamond_Star_03.png?t=0cb94581c",
+//   "https://cdn.royaleapi.com/static/img/badge/legendary-1/Diamond_Star_03.png?t=0cb94581c",
+//   "https://cdn.royaleapi.com/static/img/badge/gold-2/Diamond_Star_03.png?t=327e5052c",
+//   "https://cdn.royaleapi.com/static/img/badge/silver-2/Diamond_Star_03.png?t=941aeb7dc",
+//   "https://cdn.royaleapi.com/static/img/badge/legendary-1/Diamond_Star_03.png?t=0cb94581c",
 // ];
+export const clanImage =
+  "https://res.cloudinary.com/dmvu7wol7/image/upload/v1770887127/ClanManagement/Diamond_Star_03.png";
 
 function Home() {
   const clanTag = ["YJQRVLGY", "YJY8VJJQ", "YVQ0L9RC", "LPLLYQQU", "PQGQPCC9"];
@@ -101,7 +94,7 @@ function Home() {
                   state: clanName[index],
                 }}
               >
-                <ClanImage src={clanImageUrl} alt={name} />
+                <ClanImage src={clanImage} alt={name} />
                 <span>{name} &rarr;</span>
               </Link>
             </ClanName>

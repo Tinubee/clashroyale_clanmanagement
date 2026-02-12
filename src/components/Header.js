@@ -119,10 +119,7 @@ function Header({ name, member, clanTag }) {
             <span>{member === "" ? "" : `${member} 님의 Profile`}</span>
           ) : (
             <ClanTitleContainer>
-              <ClanImage
-                src={clanImage[clanName.findIndex((item) => item === name)]}
-                alt={name}
-              />
+              <ClanImage src={clanImage} alt={name} />
               {name}
             </ClanTitleContainer>
           )}
