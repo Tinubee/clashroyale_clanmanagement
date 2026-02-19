@@ -68,13 +68,16 @@ export const clanName = [
   "Faded플러스",
 ];
 
-export const clanImage = [
-  "https://res.cloudinary.com/dmvu7wol7/image/upload/v1770887127/ClanManagement/Diamond_Star_03.png",
-  "https://res.cloudinary.com/dmvu7wol7/image/upload/v1770887127/ClanManagement/Diamond_Star_03.png",
-  "https://res.cloudinary.com/dmvu7wol7/image/upload/v1770887127/ClanManagement/Diamond_Star_03.png",
-  "https://res.cloudinary.com/dmvu7wol7/image/upload/v1770887127/ClanManagement/Diamond_Star_03.png",
-  "https://res.cloudinary.com/dmvu7wol7/image/upload/v1770887127/ClanManagement/Diamond_Star_03.png",
-];
+// export const clanImage = [
+//   "https://res.cloudinary.com/dmvu7wol7/image/upload/v1770887127/ClanManagement/Diamond_Star_03.png",
+//   "https://res.cloudinary.com/dmvu7wol7/image/upload/v1770887127/ClanManagement/Diamond_Star_03.png",
+//   "https://res.cloudinary.com/dmvu7wol7/image/upload/v1770887127/ClanManagement/Diamond_Star_03.png",
+//   "https://res.cloudinary.com/dmvu7wol7/image/upload/v1770887127/ClanManagement/Diamond_Star_03.png",
+//   "https://res.cloudinary.com/dmvu7wol7/image/upload/v1770887127/ClanManagement/Diamond_Star_03.png",
+// ];
+
+export const clanImage =
+  "https://res.cloudinary.com/dmvu7wol7/image/upload/v1770887127/ClanManagement/Diamond_Star_03.png";
 
 function Home() {
   const clanTag = ["YJQRVLGY", "YJY8VJJQ", "YVQ0L9RC", "LPLLYQQU", "PQGQPCC9"];
