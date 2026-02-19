@@ -8,7 +8,7 @@ const FooterContainer = styled.div`
 function Footer() {
   return (
     <FooterContainer>
-      &copy; {new Date().getFullYear()} Made by Chingo
+      &copy; 2022~{new Date().getFullYear()} Made by Chingo
     </FooterContainer>
   );
 }

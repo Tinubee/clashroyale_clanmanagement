@@ -92,7 +92,10 @@ function Home() {
                   state: clanName[index],
                 }}
               >
-                <ClanImage src={clanImage[index]} alt={name} />
+                <ClanImage
+                  src="https://res.cloudinary.com/dmvu7wol7/image/upload/v1770887127/ClanManagement/Diamond_Star_03.png"
+                  alt={name}
+                />
                 <span>{name} &rarr;</span>
               </Link>
             </ClanName>
