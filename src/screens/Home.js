@@ -69,11 +69,11 @@ export const clanName = [
 ];
 
 export const clanImage = [
-  "https://cdn.royaleapi.com/static/img/badge/legendary-1/Diamond_Star_03.png?t=0cb94581c",
-  "https://cdn.royaleapi.com/static/img/badge/legendary-1/Diamond_Star_03.png?t=0cb94581c",
-  "https://cdn.royaleapi.com/static/img/badge/gold-2/Diamond_Star_03.png?t=327e5052c",
-  "https://cdn.royaleapi.com/static/img/badge/silver-2/Diamond_Star_03.png?t=941aeb7dc",
-  "https://cdn.royaleapi.com/static/img/badge/legendary-1/Diamond_Star_03.png?t=0cb94581c",
+  "https://res.cloudinary.com/dmvu7wol7/image/upload/v1770887127/ClanManagement/Diamond_Star_03.png",
+  "https://res.cloudinary.com/dmvu7wol7/image/upload/v1770887127/ClanManagement/Diamond_Star_03.png",
+  "https://res.cloudinary.com/dmvu7wol7/image/upload/v1770887127/ClanManagement/Diamond_Star_03.png",
+  "https://res.cloudinary.com/dmvu7wol7/image/upload/v1770887127/ClanManagement/Diamond_Star_03.png",
+  "https://res.cloudinary.com/dmvu7wol7/image/upload/v1770887127/ClanManagement/Diamond_Star_03.png",
 ];
 
 function Home() {
