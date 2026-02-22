@@ -127,7 +127,7 @@ function ClanMember({ clanMembers }) {
     e.preventDefault();
     if (inKakaoRoomMember.includes(e.target.innerText)) {
       setInKakaoRoomMember((prev) =>
-        prev.filter((member) => member !== e.target.innerText)
+        prev.filter((member) => member !== e.target.innerText),
       );
     } else {
       setInKakaoRoomMember((prev) => [...prev, e.target.innerText]);
@@ -136,21 +136,21 @@ function ClanMember({ clanMembers }) {
 
   const searchCompleteMember = searchMemberList(search, clanMembers);
 
-  const TimeFormat = (time) => {
-    const inputTime =
-      time.slice(0, 4) +
-      "-" +
-      time.slice(4, 6) +
-      "-" +
-      time.slice(6, 8) +
-      time.slice(8, 11) +
-      ":" +
-      time.slice(11, 13) +
-      ":" +
-      time.slice(13, time.length);
-    const FormatDate = new Date(inputTime);
-    return FormatDate.toLocaleString();
-  };
+  // const TimeFormat = (time) => {
+  //   const inputTime =
+  //     time.slice(0, 4) +
+  //     "-" +
+  //     time.slice(4, 6) +
+  //     "-" +
+  //     time.slice(6, 8) +
+  //     time.slice(8, 11) +
+  //     ":" +
+  //     time.slice(11, 13) +
+  //     ":" +
+  //     time.slice(13, time.length);
+  //   const FormatDate = new Date(inputTime);
+  //   return FormatDate.toLocaleString();
+  // };
 
   return (
     <>
@@ -220,8 +220,8 @@ function ClanMember({ clanMembers }) {
                     {member.name} : {member.arena.name} [{member.trophies}🏆]
                   </Info>
                   <LastSeenContainer>
-                    <LastSeenText>마지막 접속 시간 : </LastSeenText>
-                    <LastSeenTime>{TimeFormat(member.lastSeen)}</LastSeenTime>
+                    {/* <LastSeenText>마지막 접속 시간 : </LastSeenText> */}
+                    {/* <LastSeenTime>{TimeFormat(member.lastSeen)}</LastSeenTime> */}
                   </LastSeenContainer>
                   <Link
                     to={{
